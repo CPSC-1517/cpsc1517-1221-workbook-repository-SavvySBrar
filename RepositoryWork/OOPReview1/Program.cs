@@ -7,7 +7,4 @@ using OOPReview1
         "Senators",
         "Ottawa"
         );
-        senators GamesPlayed = 82;
-        senators Wins = 33;
-        senators Losses = 42;
-        senators OvertimeLosses
+        
