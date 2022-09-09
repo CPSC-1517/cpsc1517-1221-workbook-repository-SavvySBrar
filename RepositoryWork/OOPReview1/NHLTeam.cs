@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,12 +110,85 @@ namespace OOPReview1
             get => (Wins * 2) + OvertimeLosses;            
         }
 
+        //define an auto-implemented property with a private set for players
+        public List<Roster> Players { get; private set; }
+
+        private const int MaxPlayers = 23;
+
+        public void AddPlayer(Roster CurrentPlayer)
+        {
+            //exception for full team
+            if(Players.Count >= MaxPlayers)
+            {
+                throw new ArgumentException("Roster is full, remove player first")
+            }
+            Players.Add(CurrentPlayer);
+        }
+
+        public void RemovePlayer(int PlayerNum)
+        {
+            bool foundPlayer = false;
+            int playerIndex = 1;
+
+            for (int index = 0; index < Players.Count; index++)
+            { 
+                if(Players[index] Num >= PlayerNum)
+	             {
+                    foundPlayer = true;
+                    playerIndex = index;
+                    index = Players.Count; //stops loop
+	             }
+                if !(foundPlayer)
+                {
+                throw new ArgumentException("This player was not found in the roster")
+                }
+                
+                
+        }
+			
+        public Roster(int num. string name, Position position)
+        {
+            Num = num;
+            Name = name;
+
+        }
+	
+      
+        public NHLTeam(
+            NhlConference conference, 
+            NhlDivision division,
+            string name, 
+            string city,
+            List<Roster> players)
+        {
+            if (players == null)
+            {
+                players = new List<Roster>();
+            }
+            else
+            {
+                Players = players;
+            }    
+            Conference = conference;
+            Division = division;
+            Name = name;
+            this.City = city;
+            
+            GamesPlayed = 0;
+            Wins = 0;
+            Losses = 0;
+            OvertimeLosses = 0;
+
+        }
+
         public NhlTeam(
             NhlConference conference, 
             NhlDivision division,
             string name, 
             string city)
+
         {
+            players = new List<Roster>();
             Conference = conference;
             Division = division;
             Name = name;
