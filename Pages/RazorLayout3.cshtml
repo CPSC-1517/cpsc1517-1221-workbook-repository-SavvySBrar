@@ -1,0 +1,18 @@
+﻿@page
+@model WebApplication1.Pages.RazorLayout3Model
+@{
+}
+<!-- Single-statement block -->
+@{
+    var theMonth = DateTime.Now.Month;
+}
+
+<!-- Multi-statement block -->
+@{
+    var outsideTemp = 79;
+    var weatherMessage = "Hello, it is " + outsideTemp + " degrees.";
+}
+
+<!-- Inline expression, so no semicolon -->
+<p>The month's numeric value: @theMonth</p>
+<p>Today's weather: @weatherMessage </p>
